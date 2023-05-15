@@ -56,9 +56,9 @@ class ObjectProbeErrorPlot(object):
         self.txt_purityObject = self.ax_object.set_title("Object estimate")
         self.ax_error_metric.set_title("Error metric")
         self.ax_error_metric.grid(True)
-        self.ax_error_metric.grid(
-            b=True, which="minor", color="#999999", linestyle="-", alpha=0.2
-        )
+        #self.ax_error_metric.grid(
+        #    b=True, which="minor", color="#999999", linestyle="-", alpha=0.2
+        #)
         self.ax_error_metric.set_xlabel("iterations")
         self.ax_error_metric.set_ylabel("error")
         self.ax_error_metric.set_xscale("log")

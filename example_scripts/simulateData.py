@@ -1,6 +1,11 @@
 # This script contains a minimum working example of how to generate data.
 # The data are stored in example_data/simu.hdf5
 
+try:
+    from .context import PtyLab
+except Exception:  # ImportError
+    from context import PtyLab
+
 import numpy as np
 from PtyLab.utils.utils import circ, gaussian2D, cart2pol, fft2c
 from PtyLab.utils.scanGrids import GenerateNonUniformFermat
@@ -21,6 +26,8 @@ fileName = "simu"
 
 wavelength = 632.8e-9
 zo = 5e-2
+zled = 66.5e-3 #John
+magnification = 10
 nlambda = 1
 npsm = 1
 nosm = 1
@@ -216,6 +223,8 @@ if export_data:
     hf.create_dataset("Nd", data=(Nd,), dtype="i")
     hf.create_dataset("No", data=(No,), dtype="i")
     hf.create_dataset("zo", data=(zo,), dtype="f")
+    hf.create_dataset("zled", data=(zled,), dtype="f")
+    hf.create_dataset("magnification", data=(magnification,), dtype="f")
     hf.create_dataset("wavelength", data=(wavelength,), dtype="f")
     hf.create_dataset("entrancePupilDiameter", data=(entrancePupilDiameter,), dtype="f")
     hf.create_dataset("orientation", data=0)

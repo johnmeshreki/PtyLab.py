@@ -2,6 +2,12 @@
 FPM data reconstructor 
 change data visualization and initialization options manually for now
 """
+
+try:
+    from .context import PtyLab
+except Exception:  # ImportError
+    from context import PtyLab
+
 import matplotlib
 
 try:
@@ -21,7 +27,8 @@ change data visualization and initialization options manually for now
 """
 
 # download the example file from one of the suggested repositories
-fileName = "LungCarcinomaFPM.hdf5"  # simu.hdf5 or Lenspaper.hdf5
+#fileName = "LungCarcinomaFPM.hdf5"  # simu.hdf5 or Lenspaper.hdf5
+fileName = "simu.hdf5" #or Lenspaper.hdf5
 filePath = getExampleDataFolder() / fileName
 
 exampleData, reconstruction, params, monitor, engine, calib = PtyLab.easyInitialize(
